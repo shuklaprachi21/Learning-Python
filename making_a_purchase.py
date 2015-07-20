@@ -1,3 +1,4 @@
+#customer making a purchase if stock of the item in the shopping list is >0
 shopping_list = ["banana", "orange", "apple"]
 
 stock = {
@@ -17,7 +18,10 @@ prices = {
 def compute_bill(food):
     total = 0
     for item in food:
-        total += prices[item]
+        if (stock[item]>0):
+            total += prices[item]
+            stock[item] = stock[item]-1
+    print total
     return total
 
-print compute_bill(shopping_list)
+compute_bill(shopping_list)
